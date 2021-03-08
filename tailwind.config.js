@@ -4,6 +4,11 @@ module.exports = {
     fontFamily: {
       body: ['Inter', 'sans-serif'],
     },
+    extend: {
+      colors: {
+        'dark-purple': '#151528',
+      },
+    },
   },
   variants: {},
   plugins: [],
