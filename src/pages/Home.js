@@ -42,13 +42,14 @@ const Home = () => {
 
   useEffect(() => {
     if (search) setRows(filterCoinSearch(search, coins));
+    else if (coins) setRows(coins);
   }, [search]);
 
   const handleSearchChange = debounce(
     (event) => setSearch(extractPath(['target', 'value'], event)),
     500
   );
-
+  console.log(coins, rows);
   return (
     <div className="container max-w-3xl mx-auto p-2">
       <div className="py-4">
