@@ -2,6 +2,7 @@ import { extractPath } from '../';
 
 const formatCoin = (coin) => {
   const name = extractPath(['name'], coin);
+  const slug = extractPath(['slug'], coin);
   const symbol = extractPath(['symbol'], coin);
   const profile = extractPath(['profile', 'general', 'overview'], coin);
   const details = extractPath(['project_details'], profile);
@@ -12,6 +13,7 @@ const formatCoin = (coin) => {
 
   return {
     name,
+    slug,
     symbol,
     details,
     tagline,
