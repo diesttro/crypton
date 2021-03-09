@@ -1,8 +1,8 @@
 import React from 'react';
-import { roundNumber } from '../../utils';
+import { round } from '../../utils';
 
 const Change = ({ className, change }) => (
-  <span className={className}>{roundNumber(change)}%</span>
+  <span className={className}>{round(change)}%</span>
 );
 
 export default Change;

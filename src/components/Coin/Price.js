@@ -1,8 +1,8 @@
 import React from 'react';
-import { roundNumber } from '../../utils';
+import { round } from '../../utils';
 
 const Price = ({ className, price }) => (
-  <span className={className}>${roundNumber(price)}</span>
+  <span className={className}>${round(price)}</span>
 );
 
 export default Price;
