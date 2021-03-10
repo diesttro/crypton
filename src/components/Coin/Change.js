@@ -1,15 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { round } from '../../utils';
 
 const Change = ({ className, change }) => (
   <span
     className={classNames(
       className,
-      change > 0 ? 'text-green-600' : 'text-red-600'
+      change > 0 ? 'text-green-500' : 'text-red-500'
     )}
   >
-    {round(change)}%
+    {change}%
   </span>
 );
 

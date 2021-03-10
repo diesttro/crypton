@@ -17,8 +17,8 @@ const formatCoin = (coin) => {
     symbol,
     details,
     tagline,
-    price,
-    change24h,
+    price: price?.toFixed(2),
+    change24h: change24h?.toFixed(2),
   };
 };
 

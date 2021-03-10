@@ -20,9 +20,6 @@ const debounce = (fn, time) => {
   };
 };
 
-const round = (number, decimals = 2) =>
-  Math.round(number * Math.pow(10, decimals)) / Math.pow(10, decimals);
-
 const not = (value) => !value;
 
-export { curry, asyncpipe, extractPath, debounce, round, not };
+export { curry, asyncpipe, extractPath, debounce, not };
