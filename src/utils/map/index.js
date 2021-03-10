@@ -10,15 +10,17 @@ const formatCoin = (coin) => {
   const metrics = extractPath(['metrics', 'market_data'], coin);
   const price = extractPath(['price_usd'], metrics);
   const change24h = extractPath(['percent_change_usd_last_24_hours'], metrics);
+  const change1h = extractPath(['percent_change_usd_last_1_hour'], metrics);
 
   return {
     name,
     slug,
     symbol,
-    details,
+    details: details?.replace(new RegExp('<a[^>]*>([^<]+)</a>', 'g'), '$1'),
     tagline,
     price: price?.toFixed(2),
     change24h: change24h?.toFixed(2),
+    change1h: change1h?.toFixed(2),
   };
 };
 

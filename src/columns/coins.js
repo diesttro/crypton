@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { CoinImage, CoinName, CoinPrice, CoinChange } from '../components/Coin';
 
 const coinColumns = [
@@ -6,10 +7,12 @@ const coinColumns = [
     field: 'name',
     text: 'Name',
     sortable: true,
-    render: ({ name, symbol }) => (
+    render: ({ name, slug, symbol }) => (
       <div className="flex items-center">
         <CoinImage symbol={symbol.toLowerCase()} className="w-8 h-8" />
-        <CoinName className="ml-2">{name}</CoinName>
+        <Link to={`/profile/${slug}`}>
+          <CoinName className="ml-2">{name}</CoinName>
+        </Link>
       </div>
     ),
   },

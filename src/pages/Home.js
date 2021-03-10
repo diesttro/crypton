@@ -9,20 +9,20 @@ import sortBy, { toggleOrder } from '../utils/sort';
 import coinColumns from '../columns/coins';
 
 const Home = () => {
-  const { coins } = useContext(AppContext);
   const [search, setSearch] = useState('');
   const [rows, setRows] = useState([]);
   const orderRef = useRef({});
+  const coinList = useContext(AppContext);
 
   useEffect(() => {
-    if (coins) setRows(coins);
-  }, [coins]);
+    if (coinList) setRows(coinList);
+  }, [coinList]);
 
   useEffect(() => {
     orderRef.current.value = null;
 
-    if (search) setRows(filterCoinSearch(search, coins));
-    else if (coins) setRows(coins);
+    if (search) setRows(filterCoinSearch(search, coinList));
+    else if (coinList) setRows(coinList);
   }, [search]);
 
   const handleSearchChange = debounce(

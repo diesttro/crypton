@@ -22,4 +22,6 @@ const debounce = (fn, time) => {
 
 const not = (value) => !value;
 
-export { curry, asyncpipe, extractPath, debounce, not };
+const head = (list) => list[0];
+
+export { curry, asyncpipe, extractPath, debounce, not, head };
