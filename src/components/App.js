@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getCoins } from '../services/coins';
+import { getCoins } from '../services/api/coins';
 import Home from '../pages/Home';
 
 const AppContext = createContext();

@@ -3,12 +3,12 @@ import { not } from '../utils';
 
 const toJson = (response) => response.json();
 
-const get = (url, processors) =>
+const get = (url) =>
   new Promise((resolve, reject) => {
     fetch(url).then((response) => {
-      if (not(response.ok)) reject(response.statusText);
+      if (not(response.ok)) reject(new Error(response.statusText));
 
-      resolve(processors ? processors(response) : response);
+      resolve(response);
     });
   });
 

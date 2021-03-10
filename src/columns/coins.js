@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  CoinImage,
-  CoinName,
-  CoinPrice,
-  CoinChange,
-} from '../../components/Coin';
+import { CoinImage, CoinName, CoinPrice, CoinChange } from '../components/Coin';
 
 const coinColumns = [
   {
