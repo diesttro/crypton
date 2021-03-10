@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { AppContext } from '../../components/App';
-import Title from '../../components/Title';
-import Search from '../../components/Search';
-import DataTable from '../../components/DataTable';
-import { extractPath, debounce } from '../../utils';
-import { filterCoinSearch } from '../../utils/filter';
-import sortBy, { toggleOrder } from '../../utils/sort';
-import coinColumns from './coinColumns';
+import { AppContext } from '../components/App';
+import Title from '../components/Title';
+import Search from '../components/Search';
+import DataTable from '../components/DataTable';
+import { extractPath, debounce } from '../utils';
+import { filterCoinSearch } from '../utils/filter';
+import sortBy, { toggleOrder } from '../utils/sort';
+import coinColumns from '../columns/coins';
 
 const Home = () => {
   const { coins } = useContext(AppContext);
