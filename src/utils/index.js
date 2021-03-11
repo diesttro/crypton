@@ -35,4 +35,16 @@ const sortBy = (prop, value, direction = 'asc') => {
   return sorted;
 };
 
-export { curry, asyncpipe, extractPath, debounce, not, toggleOrder, sortBy };
+const stripTags = (value) =>
+  value?.replace(new RegExp('(<([^>]+)>)', 'gi'), '');
+
+export {
+  curry,
+  asyncpipe,
+  extractPath,
+  debounce,
+  not,
+  toggleOrder,
+  sortBy,
+  stripTags,
+};

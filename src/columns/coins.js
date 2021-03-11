@@ -24,6 +24,13 @@ const coinColumns = [
     render: ({ price }) => <CoinPrice price={price.toFixed(2)} />,
   },
   {
+    field: 'change1h',
+    text: '1h %',
+    sortable: true,
+    className: 'text-right',
+    render: ({ change1h }) => <CoinChange change={change1h.toFixed(2)} />,
+  },
+  {
     field: 'change24h',
     text: '24h %',
     sortable: true,

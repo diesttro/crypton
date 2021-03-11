@@ -1,4 +1,4 @@
-import { extractPath } from '../utils';
+import { extractPath, stripTags } from '../utils';
 
 const formatCoin = (coin) => {
   const name = extractPath(['name'], coin);
@@ -16,7 +16,7 @@ const formatCoin = (coin) => {
     name,
     slug,
     symbol,
-    details: details?.replace(new RegExp('<a[^>]*>([^<]+)</a>', 'g'), '$1'),
+    details: stripTags(details),
     tagline,
     price,
     change24h,
