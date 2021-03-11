@@ -25,7 +25,7 @@ const coinColumns = [
   },
   {
     field: 'change24h',
-    text: '24h Change',
+    text: '24h %',
     sortable: true,
     className: 'text-right',
     render: ({ change24h }) => <CoinChange change={change24h} />,

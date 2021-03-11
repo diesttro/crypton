@@ -1,7 +1,6 @@
-const filterCoin = (coin, coinList) =>
-  coinList.filter((currentCoin) => coin === currentCoin.slug);
+const findCoin = (slug, coins) => coins.find((coin) => slug === coin.slug);
 
 const filterCoinSearch = (search, coins) =>
   coins.filter((coin) => new RegExp(search, 'i').test(coin.name));
 
-export { filterCoin, filterCoinSearch };
+export { findCoin, filterCoinSearch };

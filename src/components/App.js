@@ -15,6 +15,7 @@ const App = () => {
 
   return (
     <AppContext.Provider value={coinList}>
+      {/* HashRouter it's not used to prevent direct access to profile */}
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
