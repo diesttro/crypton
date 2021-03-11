@@ -3,9 +3,8 @@ import { AppContext } from '../components/App';
 import Title from '../components/Title';
 import Search from '../components/Search';
 import DataTable from '../components/DataTable';
-import { extractPath, debounce } from '../utils';
-import { filterCoinSearch } from '../utils/filter';
-import sortBy, { toggleOrder } from '../utils/sort';
+import { extractPath, debounce, toggleOrder, sortBy } from '../utils';
+import { filterCoins } from '../utils/coins';
 import coinColumns from '../columns/coins';
 
 const Home = () => {
@@ -21,7 +20,7 @@ const Home = () => {
   useEffect(() => {
     orderRef.current.value = null;
 
-    if (search) setRows(filterCoinSearch(search, coinList));
+    if (search) setRows(filterCoins(search, coinList));
     else if (coinList) setRows(coinList);
   }, [search]);
 

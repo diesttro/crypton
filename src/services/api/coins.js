@@ -1,10 +1,10 @@
 import http, { toJson } from '..';
-import { GET_COINS } from './endpoints';
+import { GET_COINS } from './endpoints/assets';
 import { asyncpipe, extractPath } from '../../utils';
-import { mapCoins } from '../../utils/map';
+import { mapCoins } from '../../utils/coins';
 
 const processCoins = asyncpipe(toJson, extractPath(['data']), mapCoins);
 
-const getCoins = () => http.get(GET_COINS).then(processCoins);
+const getCoinList = () => http.get(GET_COINS).then(processCoins);
 
-export { getCoins };
+export { getCoinList };

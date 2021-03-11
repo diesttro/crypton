@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { AppContext } from '../components/App';
 import Title from '../components/Title';
 import { CoinImage, CoinName, CoinPrice, CoinChange } from '../components/Coin';
-import { findCoin } from '../utils/filter';
+import { findCoin } from '../utils/coins';
 
 const Profile = () => {
   const { slug } = useParams();

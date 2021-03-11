@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { getCoins } from '../services/api/coins';
+import { getCoinList } from '../services/api/coins';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 
@@ -10,7 +10,7 @@ const App = () => {
   const [coinList, setCoinList] = useState();
 
   useEffect(() => {
-    getCoins().then(setCoinList).catch(console.error);
+    getCoinList().then(setCoinList).catch(console.error);
   }, []);
 
   return (

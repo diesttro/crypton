@@ -1,4 +1,4 @@
-import { extractPath } from '../';
+import { extractPath } from '../utils';
 
 const formatCoin = (coin) => {
   const name = extractPath(['name'], coin);
@@ -26,4 +26,9 @@ const formatCoin = (coin) => {
 
 const mapCoins = (coins) => coins?.map(formatCoin);
 
-export { mapCoins };
+const findCoin = (slug, coins) => coins.find((coin) => slug === coin.slug);
+
+const filterCoins = (search, coins) =>
+  coins.filter((coin) => new RegExp(search, 'i').test(coin.name));
+
+export { mapCoins, findCoin, filterCoins };
