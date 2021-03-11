@@ -29,6 +29,6 @@ const mapCoins = (coins) => coins?.map(formatCoin);
 const findCoin = (slug, coins) => coins.find((coin) => slug === coin.slug);
 
 const filterCoins = (search, coins) =>
-  coins.filter((coin) => new RegExp(search, 'i').test(coin.name));
+  coins.filter((coin) => new RegExp(search, 'gi').test(coin.name));
 
 export { mapCoins, findCoin, filterCoins };

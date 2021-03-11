@@ -1,3 +1,5 @@
+const not = (value) => !value;
+
 const curry = (fn, ...args) =>
   fn.length <= args.length
     ? fn(...args)
@@ -10,6 +12,11 @@ const extractPath = curry((path, value) =>
   path.reduce((result, key) => result?.[key], value)
 );
 
+const toggleOrder = (order = 'asc') => (order === 'desc' ? 'asc' : 'desc');
+
+const stripTags = (value) =>
+  value?.replace(new RegExp('(<([^>]+)>)', 'gi'), '');
+
 const debounce = (fn, time) => {
   let timeout;
 
@@ -20,11 +27,7 @@ const debounce = (fn, time) => {
   };
 };
 
-const not = (value) => !value;
-
-const toggleOrder = (order = 'asc') => (order === 'desc' ? 'asc' : 'desc');
-
-const sortBy = (prop, value, direction = 'asc') => {
+const sortBy = curry((prop, value, direction = 'asc') => {
   const order = direction === 'desc' ? -1 : 1;
   const sorted = [].slice.call(value).sort((a, b) => {
     if (a[prop] < b[prop]) return -1 * order;
@@ -33,18 +36,15 @@ const sortBy = (prop, value, direction = 'asc') => {
   });
 
   return sorted;
-};
-
-const stripTags = (value) =>
-  value?.replace(new RegExp('(<([^>]+)>)', 'gi'), '');
+});
 
 export {
+  not,
   curry,
   asyncpipe,
   extractPath,
-  debounce,
-  not,
   toggleOrder,
-  sortBy,
   stripTags,
+  debounce,
+  sortBy,
 };

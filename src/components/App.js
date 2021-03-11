@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Title from './Title';
-import Spinner from './Icons/Spinner';
+import { Spinner } from './Icons';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import { getCoinList } from '../services/api/coins';
