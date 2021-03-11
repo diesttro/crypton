@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AppContext } from '../components/App';
-import Title from '../components/Title';
 import Search from '../components/Search';
 import DataTable from '../components/DataTable';
 import { extractPath, debounce, toggleOrder, sortBy } from '../utils';
@@ -8,10 +7,10 @@ import { filterCoins } from '../utils/coins';
 import coinColumns from '../columns/coins';
 
 const Home = () => {
+  const coinList = useContext(AppContext);
   const [search, setSearch] = useState('');
   const [rows, setRows] = useState([]);
   const orderRef = useRef({});
-  const coinList = useContext(AppContext);
 
   useEffect(() => {
     if (coinList) setRows(coinList);
@@ -41,10 +40,7 @@ const Home = () => {
   };
 
   return (
-    <div className="container max-w-3xl mx-auto p-2">
-      <div className="py-4">
-        <Title>Crypton</Title>
-      </div>
+    <>
       <div className="py-6 w-full sm:w-4/6 mx-auto">
         <Search
           placeholder="Look for a cryptocurrency"
@@ -59,7 +55,7 @@ const Home = () => {
           handleOrderClick={handleOrderClick}
         />
       </div>
-    </div>
+    </>
   );
 };
 

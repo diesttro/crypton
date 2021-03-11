@@ -1,8 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { getCoinList } from '../services/api/coins';
+import Title from './Title';
+import Spinner from './Icons/Spinner';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
+import { getCoinList } from '../services/api/coins';
 
 const AppContext = createContext();
 
@@ -13,20 +15,29 @@ const App = () => {
     getCoinList().then(setCoinList).catch(console.error);
   }, []);
 
-  console.log(coinList?.map((coin) => coin.change24h));
-
   return (
     <AppContext.Provider value={coinList}>
       {/* HashRouter it's not used to prevent direct access to profile */}
       <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/profile/:slug">
-            <Profile />
-          </Route>
-        </Switch>
+        <div className="container max-w-3xl mx-auto p-2">
+          <div className="py-4">
+            <Title>Crypton</Title>
+          </div>
+          {coinList ? (
+            <Switch>
+              <Route path="/profile/:slug">
+                <Profile />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          ) : (
+            <div className="flex justify-center py-4">
+              <Spinner className="w-6 h-6 text-white" />
+            </div>
+          )}
+        </div>
       </BrowserRouter>
     </AppContext.Provider>
   );

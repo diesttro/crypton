@@ -1,8 +1,13 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../components/App';
-import Title from '../components/Title';
-import { CoinImage, CoinName, CoinPrice, CoinChange } from '../components/Coin';
+import {
+  CoinImage,
+  CoinName,
+  CoinSymbol,
+  CoinPrice,
+  CoinChange,
+} from '../components/Coin';
 import { findCoin } from '../utils/coins';
 
 const Profile = () => {
@@ -11,10 +16,7 @@ const Profile = () => {
   const coin = findCoin(slug, coinList);
 
   return (
-    <div className="container max-w-3xl mx-auto p-2">
-      <div className="py-4">
-        <Title>Crypton</Title>
-      </div>
+    <>
       <div className="flex flex-wrap justify-between py-2">
         <div className="flex flex-col py-2">
           <div className="flex items-center py-3">
@@ -23,6 +25,7 @@ const Profile = () => {
               className="w-10 h-10"
             />
             <CoinName className="font-bold text-xl ml-2">{coin.name}</CoinName>
+            <CoinSymbol className="ml-2">{coin.symbol}</CoinSymbol>
           </div>
           <span>{coin.tagline}</span>
         </div>
@@ -45,7 +48,7 @@ const Profile = () => {
         <h3>Details</h3>
         <p>{coin.details}</p>
       </div>
-    </div>
+    </>
   );
 };
 

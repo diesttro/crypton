@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CoinImage, CoinName, CoinPrice, CoinChange } from '../components/Coin';
+import {
+  CoinImage,
+  CoinName,
+  CoinSymbol,
+  CoinPrice,
+  CoinChange,
+} from '../components/Coin';
 
 const coinColumns = [
   {
@@ -12,6 +18,7 @@ const coinColumns = [
         <CoinImage symbol={symbol.toLowerCase()} className="w-8 h-8" />
         <Link to={`/profile/${slug}`}>
           <CoinName className="ml-2">{name}</CoinName>
+          <CoinSymbol className="ml-2">{symbol}</CoinSymbol>
         </Link>
       </div>
     ),
