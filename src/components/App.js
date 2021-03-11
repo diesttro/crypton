@@ -13,6 +13,8 @@ const App = () => {
     getCoinList().then(setCoinList).catch(console.error);
   }, []);
 
+  console.log(coinList?.map((coin) => coin.change24h));
+
   return (
     <AppContext.Provider value={coinList}>
       {/* HashRouter it's not used to prevent direct access to profile */}

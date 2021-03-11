@@ -21,14 +21,14 @@ const coinColumns = [
     text: 'Price',
     sortable: true,
     className: 'text-right',
-    render: ({ price }) => <CoinPrice price={price} />,
+    render: ({ price }) => <CoinPrice price={price.toFixed(2)} />,
   },
   {
     field: 'change24h',
     text: '24h %',
     sortable: true,
     className: 'text-right',
-    render: ({ change24h }) => <CoinChange change={change24h} />,
+    render: ({ change24h }) => <CoinChange change={change24h.toFixed(2)} />,
   },
 ];
 

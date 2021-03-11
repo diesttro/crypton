@@ -18,9 +18,9 @@ const formatCoin = (coin) => {
     symbol,
     details: details?.replace(new RegExp('<a[^>]*>([^<]+)</a>', 'g'), '$1'),
     tagline,
-    price: price?.toFixed(2),
-    change24h: change24h?.toFixed(2),
-    change1h: change1h?.toFixed(2),
+    price,
+    change24h,
+    change1h,
   };
 };
 
