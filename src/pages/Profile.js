@@ -18,18 +18,15 @@ const Profile = () => {
   return (
     <>
       <div className="flex flex-wrap justify-between py-2">
-        <div className="flex flex-col py-2">
+        <div className="flex flex-col w-full sm:w-2/3 py-2">
           <div className="flex items-center py-3">
-            <CoinImage
-              symbol={coin.symbol.toLowerCase()}
-              className="w-10 h-10"
-            />
-            <CoinName className="font-bold text-xl ml-2">{coin.name}</CoinName>
+            <CoinImage id={coin.id} alt={coin.slug} className="w-8 h-8" />
+            <CoinName className="font-bold text-lg ml-2">{coin.name}</CoinName>
             <CoinSymbol className="ml-2">{coin.symbol}</CoinSymbol>
           </div>
           <span>{coin.tagline}</span>
         </div>
-        <div className="flex items-center py-2">
+        <div className="flex sm:justify-end items-center w-full sm:w-1/3 py-2">
           <div className="flex flex-col text-right pr-2">
             <span className="font-bold">Price</span>
             <CoinPrice price={coin.price.toFixed(2)} />

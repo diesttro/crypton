@@ -1,6 +1,7 @@
 import { extractPath, stripTags } from '../utils';
 
 const formatCoin = (coin) => {
+  const id = extractPath(['id'], coin);
   const name = extractPath(['name'], coin);
   const slug = extractPath(['slug'], coin);
   const symbol = extractPath(['symbol'], coin);
@@ -13,6 +14,7 @@ const formatCoin = (coin) => {
   const change1h = extractPath(['percent_change_usd_last_1_hour'], metrics);
 
   return {
+    id,
     name,
     slug,
     symbol,

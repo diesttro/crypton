@@ -13,9 +13,9 @@ const coinColumns = [
     field: 'name',
     text: 'Name',
     sortable: true,
-    render: ({ name, slug, symbol }) => (
+    render: ({ id, name, slug, symbol }) => (
       <div className="flex items-center">
-        <CoinImage symbol={symbol.toLowerCase()} className="w-8 h-8" />
+        <CoinImage id={id} alt={slug} className="w-8 h-8" />
         <Link to={`/profile/${slug}`}>
           <CoinName className="ml-2">{name}</CoinName>
           <CoinSymbol className="ml-2">{symbol}</CoinSymbol>

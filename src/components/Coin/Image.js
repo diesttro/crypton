@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Image = ({ symbol, className }) => (
+const Image = ({ id, alt, className }) => (
   <img
     className={className}
-    src={`https://static.coincap.io/assets/icons/${symbol}@2x.png`}
-    alt={symbol}
+    alt={alt}
+    src={`https://messari.io/asset-images/${id}/32.png?v=2`}
   />
 );
 
