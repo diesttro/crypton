@@ -11,9 +11,9 @@ import {
 import { findCoin } from '../utils/coins';
 
 const Profile = () => {
+  const coins = useContext(AppContext);
   const { slug } = useParams();
-  const coinList = useContext(AppContext);
-  const coin = findCoin(slug, coinList);
+  const coin = findCoin(slug, coins);
 
   return (
     <>

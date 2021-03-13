@@ -7,16 +7,16 @@ import { filterCoins } from '../utils/coins';
 import coinColumns from '../columns/coins';
 
 const Home = () => {
-  const coinList = useContext(AppContext);
+  const coins = useContext(AppContext);
+  const [rows, setRows] = useState(coins);
   const [search, setSearch] = useState('');
-  const [rows, setRows] = useState(coinList);
   const orderRef = useRef({});
 
   useEffect(() => {
     orderRef.current.value = null;
 
-    if (search) setRows(filterCoins(search, coinList));
-    else if (coinList) setRows(coinList);
+    if (search) setRows(filterCoins(search, coins));
+    else if (coins) setRows(coins);
   }, [search]);
 
   const handleSearchChange = debounce(

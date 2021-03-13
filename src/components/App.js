@@ -4,18 +4,19 @@ import Title from './Title';
 import { Spinner } from './Icons';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
-import { getCoinList } from '../services/api/coins';
+import ErrorMessage from './ErrorMessage';
+import { getCoins } from '../services/api/coins';
 
 const AppContext = createContext();
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [coinList, setCoinList] = useState();
+  const [coins, setCoins] = useState();
 
   useEffect(() => {
-    getCoinList()
+    getCoins()
       .then((coins) => {
-        setCoinList(coins);
+        setCoins(coins);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -34,7 +35,7 @@ const App = () => {
           <Spinner className="w-6 h-6 text-white" />
         </div>
       ) : (
-        <AppContext.Provider value={coinList}>
+        <AppContext.Provider value={coins}>
           {/* HashRouter it's not used to prevent direct access to profile */}
           <BrowserRouter>
             <Switch>
@@ -42,12 +43,12 @@ const App = () => {
                 <Profile />
               </Route>
               <Route path="/">
-                {coinList ? (
+                {coins ? (
                   <Home />
                 ) : (
-                  <h2 className="text-center py-2">
+                  <ErrorMessage className="text-center py-2">
                     Oops! something went wrong
-                  </h2>
+                  </ErrorMessage>
                 )}
               </Route>
             </Switch>

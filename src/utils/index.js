@@ -27,15 +27,19 @@ const debounce = (fn, time) => {
   };
 };
 
-const sortBy = curry((prop, value, direction = 'asc') => {
-  const order = direction === 'desc' ? -1 : 1;
-  const sorted = [].slice.call(value).sort((a, b) => {
-    if (a[prop] < b[prop]) return -1 * order;
-    else if (a[prop] > b[prop]) return 1 * order;
+const sortBy = curry((prop, list, order = 'asc') => {
+  const direction = order === 'desc' ? -1 : 1;
+  const sortedList = [].slice.call(list).sort((a, b) => {
+    if (a[prop] < b[prop]) return -1 * direction;
+    else if (a[prop] > b[prop]) return 1 * direction;
     else return 0;
   });
 
-  return sorted;
+  return sortedList;
+});
+
+const throwException = curry((Type, message) => {
+  throw new Type(message);
 });
 
 export {
@@ -47,4 +51,5 @@ export {
   stripTags,
   debounce,
   sortBy,
+  throwException,
 };
