@@ -9,12 +9,8 @@ import coinColumns from '../columns/coins';
 const Home = () => {
   const coinList = useContext(AppContext);
   const [search, setSearch] = useState('');
-  const [rows, setRows] = useState([]);
+  const [rows, setRows] = useState(coinList);
   const orderRef = useRef({});
-
-  useEffect(() => {
-    if (coinList) setRows(coinList);
-  }, [coinList]);
 
   useEffect(() => {
     orderRef.current.value = null;

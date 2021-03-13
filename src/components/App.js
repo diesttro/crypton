@@ -9,37 +9,52 @@ import { getCoinList } from '../services/api/coins';
 const AppContext = createContext();
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [coinList, setCoinList] = useState();
 
   useEffect(() => {
-    getCoinList().then(setCoinList).catch(console.error);
+    getCoinList()
+      .then((coins) => {
+        setCoinList(coins);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setIsLoading(false);
+      });
   }, []);
 
   return (
-    <AppContext.Provider value={coinList}>
-      {/* HashRouter it's not used to prevent direct access to profile */}
-      <BrowserRouter>
-        <div className="container max-w-3xl mx-auto p-2">
-          <div className="py-4">
-            <Title>Crypton</Title>
-          </div>
-          {coinList ? (
+    <div className="container max-w-3xl mx-auto p-2">
+      <div className="py-4">
+        <Title>Crypton</Title>
+      </div>
+      {isLoading ? (
+        <div className="flex justify-center py-4">
+          <Spinner className="w-6 h-6 text-white" />
+        </div>
+      ) : (
+        <AppContext.Provider value={coinList}>
+          {/* HashRouter it's not used to prevent direct access to profile */}
+          <BrowserRouter>
             <Switch>
               <Route path="/profile/:slug">
                 <Profile />
               </Route>
               <Route path="/">
-                <Home />
+                {coinList ? (
+                  <Home />
+                ) : (
+                  <h2 className="text-center py-2">
+                    Oops! something went wrong
+                  </h2>
+                )}
               </Route>
             </Switch>
-          ) : (
-            <div className="flex justify-center py-4">
-              <Spinner className="w-6 h-6 text-white" />
-            </div>
-          )}
-        </div>
-      </BrowserRouter>
-    </AppContext.Provider>
+          </BrowserRouter>
+        </AppContext.Provider>
+      )}
+    </div>
   );
 };
 

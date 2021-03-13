@@ -26,7 +26,7 @@ const Profile = () => {
           </div>
           <span>{coin.tagline}</span>
         </div>
-        <div className="flex sm:justify-end items-center w-full sm:w-1/3 py-2">
+        <div className="flex flex-1 sm:justify-end items-center py-2">
           <div className="flex flex-col text-right pr-2">
             <span className="font-bold">Price</span>
             <CoinPrice price={coin.price.toFixed(2)} />
