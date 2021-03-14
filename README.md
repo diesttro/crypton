@@ -2,6 +2,8 @@
 
 Look at the state of the cryptocurrencies and filter them by name, price or price change. Also you can see their individual details.
 
+You can see a demo [here](https://diesttro.github.io/crypton/).
+
 _Please note that this is a technical test and the code is intended to meet those requirements._
 
 ## Usage
