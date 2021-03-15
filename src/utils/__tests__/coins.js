@@ -28,7 +28,7 @@ describe('map coins', () => {
   });
 });
 
-describe('find coins', () => {
+describe('find coin', () => {
   it('should find coin with same slug from a list of coins', () => {
     const slug = 'cardano';
     const foundCoin = findCoin(slug, coinsMock);
@@ -40,7 +40,7 @@ describe('find coins', () => {
 });
 
 describe('filter coins', () => {
-  it('should filter coins with same slug from a list of coins', () => {
+  it('should filter coins with same name from a list of coins', () => {
     const search = 'coin';
     const filteredCoins = filterCoins(search, coinsMock);
 
