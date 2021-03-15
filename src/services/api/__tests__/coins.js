@@ -1,7 +1,7 @@
 import http from '../../';
-import { getCoinList } from '../coins';
+import { getCoins } from '../coins';
 
-const coinsResponseMock = {
+const successfulCoinsResponse = {
   data: [
     {
       slug: 'bitcoin',
@@ -21,17 +21,41 @@ const coinsResponseMock = {
   ],
 };
 
+const unsuccessfulCoinsResponse = {
+  status: {
+    error_message: 'Bad day',
+  },
+};
+
 describe('api calls', () => {
   test('get coins', async () => {
     http.get = jest.fn().mockResolvedValue({
       ok: true,
-      json: () => Promise.resolve(coinsResponseMock),
+      json: () => Promise.resolve(successfulCoinsResponse),
     });
 
-    const coins = await getCoinList();
+    const coins = await getCoins();
 
     expect(coins).toBeInstanceOf(Array);
     expect(coins[0]).toBeInstanceOf(Object);
     expect(coins[0]).toHaveProperty('price');
+  });
+
+  test('get coins error', async () => {
+    http.get = jest.fn().mockRejectedValue({
+      ok: false,
+      json: () => Promise.resolve(unsuccessfulCoinsResponse),
+    });
+
+    expect.assertions(2);
+
+    try {
+      await getCoins();
+    } catch (error) {
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toBe(
+        unsuccessfulCoinsResponse.status.error_message
+      );
+    }
   });
 });
