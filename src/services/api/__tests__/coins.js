@@ -28,7 +28,7 @@ const unsuccessfulCoinsResponse = {
 };
 
 describe('api calls', () => {
-  test('get coins', async () => {
+  it('should succeed fetching coins', async () => {
     http.get = jest.fn().mockResolvedValue({
       ok: true,
       json: () => Promise.resolve(successfulCoinsResponse),
@@ -41,7 +41,7 @@ describe('api calls', () => {
     expect(coins[0]).toHaveProperty('price');
   });
 
-  test('get coins error', async () => {
+  it('should fail fetching coins', async () => {
     http.get = jest.fn().mockRejectedValue({
       ok: false,
       json: () => Promise.resolve(unsuccessfulCoinsResponse),

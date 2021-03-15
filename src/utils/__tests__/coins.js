@@ -19,7 +19,7 @@ const coinsMock = [
 ];
 
 describe('map coins', () => {
-  test('map coins from a list', () => {
+  it('should map and format coins from a list of coins', () => {
     const mappedCoins = mapCoins(coinsMock);
 
     expect(mappedCoins).toBeInstanceOf(Array);
@@ -28,8 +28,8 @@ describe('map coins', () => {
   });
 });
 
-describe('find coin', () => {
-  test('find coin from a list', () => {
+describe('find coins', () => {
+  it('should find coin with same slug from a list of coins', () => {
     const slug = 'cardano';
     const foundCoin = findCoin(slug, coinsMock);
 
@@ -40,7 +40,7 @@ describe('find coin', () => {
 });
 
 describe('filter coins', () => {
-  test('filter coins from a list', () => {
+  it('should filter coins with same slug from a list of coins', () => {
     const search = 'coin';
     const filteredCoins = filterCoins(search, coinsMock);
 
