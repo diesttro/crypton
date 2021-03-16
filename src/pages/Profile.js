@@ -29,15 +29,15 @@ const Profile = () => {
         <div className="flex flex-1 sm:justify-end items-center py-2">
           <div className="flex flex-col text-right pr-2">
             <span className="font-bold">Price</span>
-            <CoinPrice price={coin.price.toFixed(2)} />
+            <CoinPrice price={coin.price} />
           </div>
           <div className="flex flex-col text-right px-2">
             <span className="font-bold">1h %</span>
-            <CoinChange change={coin.change1h.toFixed(2)} />
+            <CoinChange change={coin.change1h} />
           </div>
           <div className="flex flex-col text-right pl-2">
             <span className="font-bold">24h %</span>
-            <CoinChange change={coin.change24h.toFixed(2)} />
+            <CoinChange change={coin.change24h} />
           </div>
         </div>
       </div>
