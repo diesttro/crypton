@@ -1,10 +1,9 @@
 {
   "name": "crypton",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
-    "start": "webpack serve --mode development -d eval-source-map",
     "build": "cross-env NODE_ENV=production webpack --mode production",
+    "start": "webpack serve --mode development -d eval-source-map",
     "test": "jest --verbose"
   },
   "license": "ISC",
