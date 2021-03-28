@@ -1,6 +1,8 @@
 # Crypton
 
-Look at the state of the cryptocurrencies and filter them by name, price or price change. Also you can see their individual details.
+Take a look at the top 15 cryptocurrencies in market capitalization and see their details. You can filter by name and sort by name, price or price change.
+
+Moreover, the code is IE11 compliant.
 
 You can see a demo [here](https://diesttro.github.io/crypton/).
 
@@ -8,19 +10,19 @@ _Please note that this is a technical test and the code is intended to meet thos
 
 ## Usage
 
-Before start you need to install all the dependencies.
+Before you start install all the dependencies.
 
 ```bash
 npm install
 ```
 
-Once installed you can start the app.
+Once installed start the application.
 
 ```bash
 npm run start
 ```
 
-Finally you can access through localhost:8080.
+All done, you can access on localhost:8080.
 
 ## Tests
 
