@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Title from './Title';
 import { Spinner } from './Icons';
@@ -6,8 +6,6 @@ import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import ErrorMessage from './ErrorMessage';
 import { getCoins } from '../services/api/coins';
-
-const AppContext = createContext();
 
 const App = () => {
   const [coinData, setCoinData] = useState({ isLoading: true });
@@ -33,29 +31,26 @@ const App = () => {
           <Spinner className="w-6 h-6 text-white" />
         </div>
       ) : (
-        <AppContext.Provider value={coinData.coins}>
+        <BrowserRouter>
           {/* HashRouter it's not used to prevent direct access to profile */}
-          <BrowserRouter>
-            <Switch>
-              <Route path="/profile/:slug">
-                <Profile />
-              </Route>
-              <Route path="/">
-                {coinData.coins ? (
-                  <Home />
-                ) : (
-                  <ErrorMessage className="text-center py-2">
-                    Oops! something went wrong
-                  </ErrorMessage>
-                )}
-              </Route>
-            </Switch>
-          </BrowserRouter>
-        </AppContext.Provider>
+          <Switch>
+            <Route path="/profile/:slug">
+              <Profile coins={coinData.coins} />
+            </Route>
+            <Route path="/">
+              {coinData.coins ? (
+                <Home coins={coinData.coins} />
+              ) : (
+                <ErrorMessage className="text-center py-2">
+                  Oops! something went wrong
+                </ErrorMessage>
+              )}
+            </Route>
+          </Switch>
+        </BrowserRouter>
       )}
     </div>
   );
 };
 
 export default App;
-export { AppContext };

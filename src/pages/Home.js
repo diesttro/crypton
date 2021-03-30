@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { AppContext } from '../components/App';
+import React, { useEffect, useRef, useState } from 'react';
 import Search from '../components/Search';
 import DataTable from '../components/DataTable';
 import { path, debounce, toggleOrder, sortBy } from '../utils';
 import { filterCoins } from '../utils/coins';
 import coinColumns from '../columns/coins';
 
-const Home = () => {
-  const coins = useContext(AppContext);
+const Home = ({ coins }) => {
   const [rows, setRows] = useState(coins);
   const [search, setSearch] = useState('');
   const orderRef = useRef({});

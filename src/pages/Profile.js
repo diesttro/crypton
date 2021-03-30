@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { AppContext } from '../components/App';
 import {
   CoinImage,
   CoinName,
@@ -10,8 +9,7 @@ import {
 } from '../components/Coin';
 import { findCoin } from '../utils/coins';
 
-const Profile = () => {
-  const coins = useContext(AppContext);
+const Profile = ({ coins }) => {
   const { slug } = useParams();
   const coin = findCoin(slug, coins);
 
