@@ -18,7 +18,11 @@ const Profile = ({ coins }) => {
       <div className="flex flex-wrap justify-between py-2">
         <div className="flex flex-col w-full sm:w-2/3 py-2">
           <div className="flex items-center py-3">
-            <CoinImage id={coin.id} alt={coin.slug} className="w-8 h-8" />
+            <CoinImage
+              id={coin.id}
+              alt={coin.slug}
+              className="w-8 h-8 rounded-full"
+            />
             <CoinName className="font-bold text-lg ml-2">{coin.name}</CoinName>
             <CoinSymbol className="ml-2">{coin.symbol}</CoinSymbol>
           </div>

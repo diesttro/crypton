@@ -15,7 +15,7 @@ const coinColumns = [
     sortable: true,
     render: ({ id, name, slug, symbol }) => (
       <div className="flex items-center">
-        <CoinImage id={id} alt={slug} className="w-8 h-8" />
+        <CoinImage id={id} alt={slug} className="w-8 h-8 rounded-full" />
         <Link to={`/profile/${slug}`}>
           <CoinName className="ml-2">{name}</CoinName>
           <CoinSymbol className="ml-2">{symbol}</CoinSymbol>
