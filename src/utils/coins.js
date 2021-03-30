@@ -1,17 +1,17 @@
-import { extractPath, stripTags } from '../utils';
+import { path, stripTags } from '../utils';
 
 const formatCoin = (coin) => {
-  const id = extractPath(['id'], coin);
-  const name = extractPath(['name'], coin);
-  const slug = extractPath(['slug'], coin);
-  const symbol = extractPath(['symbol'], coin);
-  const profile = extractPath(['profile', 'general', 'overview'], coin);
-  const details = extractPath(['project_details'], profile);
-  const tagline = extractPath(['tagline'], profile);
-  const metrics = extractPath(['metrics', 'market_data'], coin);
-  const price = extractPath(['price_usd'], metrics);
-  const change24h = extractPath(['percent_change_usd_last_24_hours'], metrics);
-  const change1h = extractPath(['percent_change_usd_last_1_hour'], metrics);
+  const id = path(['id'], coin);
+  const name = path(['name'], coin);
+  const slug = path(['slug'], coin);
+  const symbol = path(['symbol'], coin);
+  const profile = path(['profile', 'general', 'overview'], coin);
+  const details = path(['project_details'], profile);
+  const tagline = path(['tagline'], profile);
+  const metrics = path(['metrics', 'market_data'], coin);
+  const price = path(['price_usd'], metrics);
+  const change24h = path(['percent_change_usd_last_24_hours'], metrics);
+  const change1h = path(['percent_change_usd_last_1_hour'], metrics);
 
   return {
     id,

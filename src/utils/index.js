@@ -8,7 +8,7 @@ const curry = (fn, ...args) =>
 const asyncpipe = (...fns) => (value) =>
   fns.reduce((result, fn) => result.then(fn), Promise.resolve(value));
 
-const extractPath = curry((path, value) =>
+const path = curry((path, value) =>
   path.reduce((result, key) => result?.[key], value)
 );
 
@@ -46,7 +46,7 @@ export {
   not,
   curry,
   asyncpipe,
-  extractPath,
+  path,
   toggleOrder,
   stripTags,
   debounce,

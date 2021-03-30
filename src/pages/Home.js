@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AppContext } from '../components/App';
 import Search from '../components/Search';
 import DataTable from '../components/DataTable';
-import { extractPath, debounce, toggleOrder, sortBy } from '../utils';
+import { path, debounce, toggleOrder, sortBy } from '../utils';
 import { filterCoins } from '../utils/coins';
 import coinColumns from '../columns/coins';
 
@@ -20,7 +20,7 @@ const Home = () => {
   }, [search]);
 
   const handleSearchChange = debounce(
-    (event) => setSearch(extractPath(['target', 'value'], event)),
+    (event) => setSearch(path(['target', 'value'], event)),
     500
   );
 

@@ -10,16 +10,16 @@ import { getCoins } from '../services/api/coins';
 const AppContext = createContext();
 
 const App = () => {
-  const [state, setState] = useState({ isLoading: true });
+  const [coinData, setCoinData] = useState({ isLoading: true });
 
   useEffect(() => {
     getCoins()
       .then((coins) => {
-        setState({ coins, isLoading: false });
+        setCoinData({ coins, isLoading: false });
       })
       .catch((error) => {
         console.error(error.message);
-        setState({ isLoading: false });
+        setCoinData({ isLoading: false });
       });
   }, []);
 
@@ -28,12 +28,12 @@ const App = () => {
       <div className="py-4">
         <Title>Crypton</Title>
       </div>
-      {state.isLoading ? (
+      {coinData.isLoading ? (
         <div className="flex justify-center py-4">
           <Spinner className="w-6 h-6 text-white" />
         </div>
       ) : (
-        <AppContext.Provider value={state.coins}>
+        <AppContext.Provider value={coinData.coins}>
           {/* HashRouter it's not used to prevent direct access to profile */}
           <BrowserRouter>
             <Switch>
@@ -41,7 +41,7 @@ const App = () => {
                 <Profile />
               </Route>
               <Route path="/">
-                {state.coins ? (
+                {coinData.coins ? (
                   <Home />
                 ) : (
                   <ErrorMessage className="text-center py-2">
