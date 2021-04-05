@@ -3,7 +3,7 @@ import Search from '../components/Search';
 import DataTable from '../components/DataTable';
 import { path, debounce, toggleOrder, sortBy } from '../utils';
 import { filterCoins } from '../utils/coins';
-import coinColumns from '../columns/coins';
+import coinColumns from '../components/Columns/coins';
 
 const Home = ({ coins }) => {
   const [rows, setRows] = useState(coins);

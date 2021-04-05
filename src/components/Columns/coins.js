@@ -6,7 +6,7 @@ import {
   CoinSymbol,
   CoinPrice,
   CoinChange,
-} from '../components/Coin';
+} from '../Coin';
 
 const coinColumns = [
   {
