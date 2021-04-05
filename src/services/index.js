@@ -4,12 +4,10 @@ import { not } from '../utils';
 const toJson = (response) => response.json();
 
 const get = (url) =>
-  new Promise((resolve, reject) => {
-    fetch(url).then((response) => {
-      if (not(response.ok)) reject(response);
+  fetch(url).then((response) => {
+    if (not(response.ok)) Promise.reject(response);
 
-      resolve(response);
-    });
+    return response;
   });
 
 const http = { get };

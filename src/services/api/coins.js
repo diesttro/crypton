@@ -1,5 +1,5 @@
 import http, { toJson } from '..';
-import { GET_COINS } from './endpoints/assets';
+import { COIN_LIST } from './endpoints/assets';
 import { asyncpipe, path, throwException } from '../../utils';
 import { mapCoins } from '../../utils/coins';
 
@@ -11,6 +11,6 @@ const coinErrorProcess = asyncpipe(
 );
 
 const getCoins = () =>
-  http.get(GET_COINS).then(coinsProcess).catch(coinErrorProcess);
+  http.get(COIN_LIST).then(coinsProcess).catch(coinErrorProcess);
 
 export { getCoins };
